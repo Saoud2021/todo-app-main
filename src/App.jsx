@@ -124,12 +124,12 @@ useEffect(() => {
       <div className={`app-root  ${darkMode ? "dark" : "light"}`}>
         {darkMode ? (
           <img
-            src="../images/bg-desktop-dark.jpg"
+            src="/images/bg-desktop-dark.jpg"
             className="background-image"
           />
         ) : (
           <img
-            src="../images/bg-desktop-light.jpg"
+            src="/images/bg-desktop-light.jpg"
             className="background-image"
           />
         )}
@@ -146,8 +146,8 @@ useEffect(() => {
               <img
                 src={
                   darkMode
-                    ? "../images/icon-sun.svg"
-                    : "../images/icon-moon.svg"
+                    ? "/images/icon-sun.svg"
+                    : "/images/icon-moon.svg"
                 }
                 alt="Toggle theme"
               />
@@ -157,7 +157,7 @@ useEffect(() => {
             <div className="check-button" onClick={add}>
               <img
                 className="check-icon"
-                src="../images/icon-check.svg"
+                src="/images/icon-check.svg"
                 alt=""
               />
             </div>{" "}
@@ -196,7 +196,7 @@ useEffect(() => {
                   >
                     <img
                       className="check-icon"
-                      src="../images/icon-check.svg"
+                      src="/images/icon-check.svg"
                       alt=""
                     />
                   </div>
