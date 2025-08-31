@@ -1,0 +1,403 @@
+body,
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-josefin-sans);
+}.app-root {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--light-gray-50);
+    transition: background-color 0.3s ease;
+  }
+  
+  .app-root.dark {
+    background-color: var(--dark-navy-950);
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 750px;
+    padding: 2rem 1rem;
+    position: relative;
+    z-index: 10;
+    margin-top: 3rem;
+  }
+  
+  .todo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    color: white;
+    letter-spacing: 0.5rem;
+  }
+  
+  .todo-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  .theme-toggle {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .input-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .app-root.dark .input-card {
+    background-color: var(--dark-navy-900);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .input-card input {
+    border: none;
+    width: 100%;
+    caret-color: var(--blue-500);
+    line-height: 1.5;
+    font-size: 1rem;
+    font-family: 'Josefin Sans', sans-serif;
+    background: transparent;
+    color: var(--light-navy-850);
+    transition: color 0.3s ease;
+  }
+  
+  .app-root.dark .input-card input {
+    color: var(--dark-purple-300);
+  }
+  
+  .input-card input:focus {
+    outline: none;
+  }
+  
+  .input-card input::placeholder {
+    color: var(--light-gray-600);
+  }
+  
+  .app-root.dark .input-card input::placeholder {
+    color: var(--dark-purple-600);
+  }
+  
+  .check-button {
+    border: solid var(--light-gray-600) 2px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+  
+  .check-button:hover {
+    border-color: var(--blue-500);
+  }
+  
+  .check-button.active {
+    background: linear-gradient(135deg, var(--check-bg-start), var(--check-bg-end));
+    border: none;
+  }
+  
+  .check-icon {
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .check-button.active .check-icon {
+    opacity: 1;
+  }
+  
+  .sub-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 400px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+  }
+  
+  .app-root.dark .sub-container {
+    background-color: var(--dark-navy-900);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    border-bottom: solid var(--light-gray-300) 1px;
+    transition: all 0.2s ease;
+    cursor: grab;
+    background-color: white;
+  }
+  
+  .app-root.dark .card {
+    background-color: var(--dark-navy-900);
+    border-bottom: solid var(--dark-purple-800) 1px;
+  }
+  
+  .card:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .app-root.dark .card:hover {
+    background-color: var(--dark-purple-800);
+  }
+  
+  .card.dragging {
+    cursor: grabbing;
+    opacity: 0.5;
+    transform: rotate(3deg);
+  }
+  
+  .card:last-of-type {
+    border-bottom: none;
+  }
+  
+  .card p {
+    flex-grow: 1;
+    margin: 0;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--light-navy-850);
+    transition: all 0.2s ease;
+  }
+  
+  .app-root.dark .card p {
+    color: var(--dark-purple-300);
+  }
+  
+  .card p.completed {
+    text-decoration: line-through;
+    color: var(--light-gray-600);
+  }
+  
+  .app-root.dark .card p.completed {
+    color: var(--dark-purple-600);
+  }
+  
+  .delete-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .delete-button:hover {
+    background-color: #ffe6e6;
+  }
+  
+  .delete-icon {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .items-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white;
+    color: var(--light-gray-600);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .app-root.dark .items-footer {
+    background-color: var(--dark-navy-900);
+    color: var(--dark-purple-600);
+  }
+  
+  .clear-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--light-gray-600);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  
+  .clear-button:hover {
+    color: var(--light-navy-850);
+  }
+  
+  .status-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .app-root.dark .status-card {
+    background-color: var(--dark-navy-900);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .status-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--light-gray-600);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+  
+  .app-root.dark .status-button {
+    color: var(--dark-purple-600);
+  }
+  
+  .status-button:hover {
+    color: var(--light-navy-850);
+  }
+  
+  .app-root.dark .status-button:hover {
+    color: var(--dark-purple-300);
+  }
+  
+  .status-button.active {
+    color: var(--blue-500);
+  }
+   .app-root.dark .status-button.active {
+    color: var(--blue-500);
+  }
+  .drag-instruction {
+    text-align: center;
+    color: var(--light-gray-600);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  
+  .empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: var(--light-gray-600);
+    font-style: italic;
+    transition: color 0.3s ease;
+  }
+  
+  .app-root.dark .empty-state {
+    color: var(--dark-purple-600);
+  }
+    /* Custom scrollbar styling */
+  .sub-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .sub-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .sub-container::-webkit-scrollbar-thumb {
+    background: var(--light-gray-600);
+    border-radius: 4px;
+  }
+  
+  .sub-container::-webkit-scrollbar-thumb:hover {
+    background: var(--light-navy-850);
+  }
+  
+  .app-root.dark .sub-container::-webkit-scrollbar-thumb {
+    background: var(--dark-purple-600);
+  }
+  
+  .app-root.dark .sub-container::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-purple-300);
+  }
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+      padding: 1rem 0.5rem;
+      margin-top: 2rem;
+    }
+    
+    .todo-header h1 {
+      font-size: 1.5rem;
+    }
+    
+    .status-card {
+      gap: 0.5rem;
+      padding: 0.75rem;
+    }
+    
+    .status-button {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.6rem;
+    }
+    
+    .items-footer {
+      font-size: 0.8rem;
+      gap: 0.5rem;
+    }
+    
+    .card {
+      padding: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 98%;
+      padding: 0.5rem;
+    }
+    
+    .todo-header {
+      letter-spacing: 0.2rem;
+    }
+    
+    .input-card {
+      padding: 0.75rem;
+    }
+    
+    .items-footer {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }

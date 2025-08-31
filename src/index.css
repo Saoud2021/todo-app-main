@@ -1,0 +1,31 @@
+
+:root {
+  /* Colors - Primary */
+  --blue-500: hsl(220, 98%, 61%);
+  --check-bg-start: hsl(192, 100%, 67%);
+  --check-bg-end: hsl(280, 87%, 65%);
+
+  /* Colors - Neutral - Light Theme */
+  --light-gray-50: hsl(0, 0%, 90%);
+  --light-purple-300: hsl(234, 39%, 85%);
+  --light-gray-300: hsl(233, 11%, 84%);
+  --light-gray-600: hsl(236, 9%, 61%);
+  --light-navy-850: hsl(235, 19%, 35%);
+
+  /* Colors - Neutral - Dark Theme */
+  --dark-navy-950: hsl(235, 21%, 11%);
+  --dark-navy-900: hsl(235, 24%, 19%);
+  --dark-purple-300: hsl(234, 39%, 85%);
+  --dark-purple-100-hover: hsl(236, 33%, 92%);
+  --dark-purple-600: hsl(235, 16%, 43%);
+  --dark-purple-700: hsl(233, 14%, 35%);
+  --dark-purple-800: hsl(237, 14%, 26%);
+  --dark-gray-600: hsl(236, 9%, 61%);
+
+  /* Typography */
+  --font-size-body: 18px;
+  --font-family-josefin-sans: 'Josefin Sans', sans-serif;
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+}
+
